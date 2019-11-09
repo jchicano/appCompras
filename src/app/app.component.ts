@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'appCompras';
+
+  ngOnInit() {
+    firebase.initializeApp({
+      apiKey: "AIzaSyAJa00Nq0uJ1qTd0iQq_P1ElFxgS78ysYU",
+      authDomain: "appcompras-angular-add.firebaseapp.com"
+    });
+  }
 }
