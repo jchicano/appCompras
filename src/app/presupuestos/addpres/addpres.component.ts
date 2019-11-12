@@ -21,7 +21,9 @@ export class AddpresComponent implements OnInit {
     this.presupuestoForm = this.pf.group({
       proveedor: ['', Validators.required],
       fecha: ['', Validators.required],
-      concepto: ['', [Validators.required, Validators.minLength(10)]], base: ['', Validators.required],
+      concepto: ['', [Validators.required,
+      Validators.minLength(10)]],
+      base: ['', Validators.required],
       tipo: ['', Validators.required],
       iva: this.iva,
       total: this.total
@@ -43,12 +45,15 @@ export class AddpresComponent implements OnInit {
     this.presupuestoService.postPresupuesto(this.presupuesto)
       .subscribe(newpres => {
       })
-      this.presupuestoForm.reset();
+    this.presupuestoForm.reset();
   }
 
   savePresupuesto() {
     const savePresupuesto = {
-      proveedor: this.presupuestoForm.get('proveedor').value, fecha: this.presupuestoForm.get('fecha').value, concepto: this.presupuestoForm.get('concepto').value, base: this.presupuestoForm.get('base').value,
+      proveedor: this.presupuestoForm.get('proveedor').value,
+      fecha: this.presupuestoForm.get('fecha').value,
+      concepto: this.presupuestoForm.get('concepto').value,
+      base: this.presupuestoForm.get('base').value,
       tipo: this.presupuestoForm.get('tipo').value,
       iva: this.presupuestoForm.get('iva').value,
       total: this.presupuestoForm.get('total').value

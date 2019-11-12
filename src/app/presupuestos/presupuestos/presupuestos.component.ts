@@ -14,7 +14,8 @@ export class PresupuestosComponent implements OnInit {
     this.presupuestosService.getPresupuestos().subscribe(presupuestos => {
       for (const id$ in presupuestos) {
         const p = presupuestos[id$];
-        p.id$ = id$; this.presupuestos.push(presupuestos[id$]);
+        p.id$ = id$;
+        this.presupuestos.push(presupuestos[id$]);
       }
     })
   }
@@ -25,7 +26,8 @@ export class PresupuestosComponent implements OnInit {
   eliminarPresupuesto(id$) {
     this.presupuestosService.delPresupuesto(id$)
       .subscribe(res => {
-        this.presupuestos = []; this.presupuestosService.getPresupuestos()
+        this.presupuestos = [];
+        this.presupuestosService.getPresupuestos()
           .subscribe(presupuestos => {
           });
       });
