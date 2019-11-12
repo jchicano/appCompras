@@ -9,7 +9,7 @@ export class GuardService {
 
   constructor(private autenticacionService: AutenticacionService, private router: Router) { }
 
-  canActivate(
+  canActivate( // https://angularfirebase.com/lessons/router-guards-to-redirect-unauthorized-firebase-users/
     next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
       if (this.autenticacionService.isAuthenticated()) { return true; }
 
