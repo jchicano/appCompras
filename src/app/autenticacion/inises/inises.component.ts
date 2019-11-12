@@ -33,8 +33,11 @@ export class InisesComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userdata = this.saveUserdata(); this.autService.inicioSesion(this.userdata); setTimeout(() => {
+    this.userdata = this.saveUserdata();
+    this.autService.inicioSesion(this.userdata);
+    setTimeout(() => {
       if (this.isAuth() === false) {
+        // Login incorrecto
         this.mensaje = true
       }
     }, 2000);
