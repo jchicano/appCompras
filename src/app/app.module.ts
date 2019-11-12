@@ -21,7 +21,7 @@ import { RegistroComponent } from './autenticacion/registro/registro.component';
 import { InisesComponent } from './autenticacion/inises/inises.component';
 
 const routes: Routes = [
-  { path: '', component: InicioComponent },
+  { path: '', component: InicioComponent, canActivate: [GuardService] },
   { path: 'proveedores', component: ProveedoresComponent, canActivate: [GuardService] },
   { path: 'addprovee', component: AddproveeComponent, canActivate: [GuardService] },
   { path: 'addpres', component: AddpresComponent, canActivate: [GuardService] },

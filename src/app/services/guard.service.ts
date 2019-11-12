@@ -1,15 +1,21 @@
 import { AutenticacionService } from './autenticacion.service';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuardService {
 
-  constructor(private autenticacionService: AutenticacionService) { }
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.autenticacionService.isAuthenticated(); 3
+  constructor(private autenticacionService: AutenticacionService, private router: Router) { }
+
+  canActivate(
+    next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+      if (this.autenticacionService.isAuthenticated()) { return true; }
+
+      // Access denied - user not logged in
+      this.router.navigate(['/iniciosesion']);
+      return false;
   }
 
 }
