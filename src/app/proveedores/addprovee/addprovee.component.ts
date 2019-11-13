@@ -6,9 +6,11 @@ import { NgForm } from '@angular/forms';
   templateUrl: './addprovee.component.html',
   styleUrls: ['./addprovee.component.css']
 })
+
 export class AddproveeComponent implements OnInit {
 
-  @ViewChild('formpro', { static: false }) formpro: NgForm;
+  @ViewChild('formpro', { static: false })
+  formpro: NgForm;
   proveedor: any;
   provincias: string[] = [
     'Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Barcelona',
