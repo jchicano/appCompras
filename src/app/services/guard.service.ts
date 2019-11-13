@@ -11,11 +11,11 @@ export class GuardService {
 
   canActivate( // https://angularfirebase.com/lessons/router-guards-to-redirect-unauthorized-firebase-users/
     next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-      if (this.autenticacionService.isAuthenticated()) { return true; }
+    if (this.autenticacionService.isAuthenticated()) { return true; }
 
-      // Access denied - user not logged in
-      this.router.navigate(['/iniciosesion']);
-      return false;
+    // Access denied - user not logged in
+    this.router.navigate(['/iniciosesion']);
+    return false;
   }
 
 }
