@@ -13,6 +13,8 @@ export class ProveedoresComponent implements OnInit {
   constructor(private proveedoresService: ProveedoresService) {
     this.proveedoresService.getProveedores().subscribe(proveedores => {
       for (const id$ in proveedores) {
+        const p = proveedores[id$];
+        p.id$ = id$;
         this.proveedores.push(proveedores[id$]);
       }
     })
