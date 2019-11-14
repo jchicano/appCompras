@@ -9,7 +9,8 @@ import { PresupuestosService } from 'src/app/services/presupuestos.service';
 })
 export class AddpresComponent implements OnInit {
 
-  presupuestoForm: FormGroup; presupuesto: any;
+  presupuestoForm: FormGroup;
+  presupuesto: any;
   base: any;
   tipo: any;
   iva: any = 0;

@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PresupuestosService {
 
   presURL = 'https://appcompras-angular-add.firebaseio.com/presupuestos.json';
@@ -41,7 +42,8 @@ export class PresupuestosService {
   }
 
   putPresupuesto(presupuesto: any, id$: string) {
-    const newpre = JSON.stringify(presupuesto); const headers = new HttpHeaders({
+    const newpre = JSON.stringify(presupuesto);
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
 
@@ -56,7 +58,8 @@ export class PresupuestosService {
   }
 
   delPresupuesto(id$: string) {
-    const url = `${this.preURL}/${id$}.json`; return this.http.delete(url)
+    const url = `${this.preURL}/${id$}.json`;
+    return this.http.delete(url)
       .pipe(
         map(res => res || [])
       );
