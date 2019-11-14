@@ -12,8 +12,10 @@ export class EditpresComponent implements OnInit {
 
   presupuestoForm: FormGroup;
   presupuesto: any;
-  base: any; tipo: any;
-  iva: any = 0; total: any = 0;
+  base: any;
+  tipo: any;
+  iva: any = 0;
+  total: any = 0;
   id: string;
 
   constructor(private pf: FormBuilder,
@@ -31,7 +33,8 @@ export class EditpresComponent implements OnInit {
     this.presupuestoForm = this.pf.group({
       proveedor: ['', Validators.required],
       fecha: ['', Validators.required],
-      concepto: ['', [Validators.required, Validators.minLength(10)]], base: ['', Validators.required],
+      concepto: ['', [Validators.required, Validators.minLength(10)]],
+      base: ['', Validators.required],
       tipo: ['', Validators.required],
       iva: this.iva,
       total: this.total
