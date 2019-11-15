@@ -29,8 +29,11 @@ export class RegistroComponent implements OnInit {
   }
 
   constructor(private formBuilder: FormBuilder,
-    private autService: AutenticacionService, private router: Router,
-  ) { }
+    private autService: AutenticacionService, private router: Router) {
+      if (this.isAuth()) {
+        this.router.navigate(['/inicio']);
+      }
+    }
 
   ngOnInit() {
     this.registroForm = this.formBuilder.group({
@@ -77,4 +80,7 @@ export class RegistroComponent implements OnInit {
     }
   }
 
+  isAuth() {
+    return this.autService.isAuthenticated();
+  }
 }

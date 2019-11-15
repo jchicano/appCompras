@@ -15,7 +15,11 @@ export class InisesComponent implements OnInit {
   mensaje = false;
 
   constructor(private formBuilder: FormBuilder, private autService: AutenticacionService, private router: Router,
-    private activatedRouter: ActivatedRoute) { }
+    private activatedRouter: ActivatedRoute) {
+    if (this.isAuth()) {
+      this.router.navigate(['/inicio']);
+    }
+  }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
