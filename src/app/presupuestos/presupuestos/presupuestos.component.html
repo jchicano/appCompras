@@ -1,9 +1,9 @@
 <h3>Listado de Presupuestos</h3>
-<a class="btn btn-primary float-md-right" routerLink="/addpres">Añadir nuevo presupuesto</a>
+<a class="btn btn-primary float-md-right" routerLink="/addpres"><i class="fa fa-folder-plus"></i> Añadir nuevo presupuesto</a>
 <br>
 <table class="table table-bordered table-striped tabla" style="margin-top: 40px;">
     <thead>
-        <tr class="filters">
+        <tr class="filters text-center">
             <th>Proveedor</th>
             <th>Fecha</th>
             <th>Concepto</th>
@@ -15,20 +15,47 @@
         </tr>
     </thead>
     <tbody>
+        <tr *ngIf="presupuestos.length === 0">
+            <td colspan="8">
+                <app-loading-spinner></app-loading-spinner>
+            </td>
+        </tr>
         <tr *ngFor="let presupuesto of presupuestos">
             <td>{{ presupuesto.proveedor }}</td>
             <td>{{ presupuesto.fecha }}</td>
             <td>{{ presupuesto.concepto }}</td>
             <td>{{ presupuesto.base }}</td>
             <td>{{ presupuesto.iva }}</td>
-            <td>{{ presupuesto.total }}</td>
-            <td>
+            <td class="text-right">{{ presupuesto.total }}</td>
+            <td class="text-center">
                 <button type="button" class="btn btn-success"
-                    routerLink="/editpres/{{ presupuesto.id$ }}">Editar</button>
+                    routerLink="/editpres/{{ presupuesto.id$ }}"><i class="fa fa-pencil"></i></button>
             </td>
-            <td>
-                <button class="btn btn-danger" (click)="eliminarPresupuesto(presupuesto.id$)">Eliminar</button>
+            <td class="text-center">
+                <button class="btn btn-danger" (click)="eliminarPresupuesto(presupuesto.id$)"><i class="fa fa-trash"></i></button>
             </td>
         </tr>
     </tbody>
 </table>
+
+<nav aria-label="page-navigation-presupuestos">
+        <ul class="pagination">
+            <li class="page-item disabled">
+                <span class="page-link">Anterior</span>
+            </li>
+            <li class="page-item active" aria-current="page">
+                <span class="page-link">
+                    1<span class="sr-only">(current)</span>
+                </span>
+            </li>
+            <li class="page-item ">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">Siguiente</a>
+            </li>
+        </ul>
+    </nav>

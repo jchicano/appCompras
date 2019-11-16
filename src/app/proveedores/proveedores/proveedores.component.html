@@ -1,9 +1,10 @@
 <h3>Listado de Proveedores</h3>
-<a class="btn btn-primary float-md-right" routerLink="/addprovee">Añadir nuevo proveedor</a>
+<a class="btn btn-primary float-md-right" routerLink="/addprovee"><i class="fa fa-user-plus"></i> Añadir nuevo
+    proveedor</a>
 <br>
 <table class="table table-bordered table-striped tabla" style="margin-top: 40px;">
     <thead>
-        <tr class="filters">
+        <tr class="filters text-center">
             <th>Nombre</th>
             <th>Correo Electrónico</th>
             <th>Teléfono</th>
@@ -12,16 +13,45 @@
         </tr>
     </thead>
     <tbody>
+        <tr *ngIf="proveedores.length === 0">
+            <td colspan="5">
+                <app-loading-spinner></app-loading-spinner>
+            </td>
+        </tr>
         <tr *ngFor="let proveedor of proveedores">
             <td>{{ proveedor.nombre }}</td>
             <td>{{ proveedor.email }}</td>
             <td>{{ proveedor.telefono }}</td>
-            <td>
-                <button type="button" class="btn btn-success" routerLink="/editprovee/{{ proveedor.id$ }}">Editar</button>
+            <td class="text-center">
+                <button type="button" class="btn btn-success" routerLink="/editprovee/{{ proveedor.id$ }}"><i
+                        class="fa fa-pencil"></i></button>
             </td>
-            <td>
-                <button class="btn btn-danger" (click)="eliminarProveedor(proveedor.id$)">Eliminar</button>
+            <td class="text-center">
+                <button class="btn btn-danger" (click)="eliminarProveedor(proveedor.id$)"><i
+                        class="fa fa-trash"></i></button>
             </td>
         </tr>
     </tbody>
 </table>
+
+<nav aria-label="page-navigation-proveedores">
+    <ul class="pagination">
+        <li class="page-item disabled">
+            <span class="page-link">Anterior</span>
+        </li>
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">
+                1<span class="sr-only">(current)</span>
+            </span>
+        </li>
+        <li class="page-item ">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">Siguiente</a>
+        </li>
+    </ul>
+</nav>

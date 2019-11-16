@@ -20,6 +20,7 @@ import { EditpresComponent } from './presupuestos/editpres/editpres.component';
 import { RegistroComponent } from './autenticacion/registro/registro.component';
 import { InisesComponent } from './autenticacion/inises/inises.component';
 import { EditproveeComponent } from './proveedores/editprovee/editprovee.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent, canActivate: [GuardService] },
@@ -46,7 +47,8 @@ const routes: Routes = [
     EditpresComponent,
     RegistroComponent,
     InisesComponent,
-    EditproveeComponent
+    EditproveeComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
