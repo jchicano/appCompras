@@ -30,7 +30,7 @@ export class RegistroComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private autService: AutenticacionService, private router: Router) {
-      if (this.isAuth()) {
+      if (this.authHasChanged()) {
         this.router.navigate(['/inicio']);
       }
     }
@@ -82,5 +82,9 @@ export class RegistroComponent implements OnInit {
 
   isAuth() {
     return this.autService.isAuthenticated();
+  }
+
+  authHasChanged() {
+    return this.autService.authenticatedHasChanged();
   }
 }

@@ -29,6 +29,15 @@ export class AutenticacionService {
   }
 
   isAuthenticated() {
+    const user = firebase.auth().currentUser;
+    if (user) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  authenticatedHasChanged(){
     // https://stackoverflow.com/a/58262391/10387022
     const user = firebase.auth().onAuthStateChanged;
     if (user) {
