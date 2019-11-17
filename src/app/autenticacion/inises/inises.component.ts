@@ -16,7 +16,7 @@ export class InisesComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private autService: AutenticacionService, private router: Router,
     private activatedRouter: ActivatedRoute) {
-    if (this.authHasChanged()) {
+    if (!this.authHasChanged()) {
       this.router.navigate(['/inicio']);
     }
   }

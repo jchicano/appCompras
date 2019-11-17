@@ -30,7 +30,7 @@ export class RegistroComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private autService: AutenticacionService, private router: Router) {
-      if (this.authHasChanged()) {
+      if (!this.authHasChanged()) {
         this.router.navigate(['/inicio']);
       }
     }
